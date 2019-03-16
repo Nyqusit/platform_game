@@ -1,6 +1,7 @@
 const Map = {
     init:function(){
         this.objectAreas = [];
+        this.groundArea =[];
         this.G_BDiv = 10;
         this.scaledWidth = (width-(width-height));
         this.blockW = this.scaledWidth/this.G_BDiv;
