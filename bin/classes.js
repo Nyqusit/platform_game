@@ -1,12 +1,13 @@
 const Map = {
     init:function(){
+        this.objectAreas = [];
         this.G_BDiv = 10;
         this.scaledWidth = (width-(width-height));
         this.blockW = this.scaledWidth/this.G_BDiv;
         this.blockH = height/this.G_BDiv;
         this.groundBlockY = height-this.blockH;
     },
-    gridClac:function(x,y,w,h){
+    gridCalc:function(x,y,w,h){
         let {G_BDiv,blockH,blockW} = this;
         let grid = {
                 X : x,
@@ -18,9 +19,10 @@ const Map = {
     },
 
     drawObj:function(obj,x,y,w,h){
-        let Pos = this.gridClac(x,y,w,h);
-            if(scroll === Pos.X){
-                scrnC.drawImage(obj,inc+(scroll*this.blockW),Pos.Y,Pos.W,Pos.H)
+        let cords = this.gridCalc(x,y,w,h);
+        if(scroll === cords.X){
+            scrnC.drawImage(obj,inc+(scroll*this.blockW),cords.Y,cords.W,cords.H)
         }
+        this.objectAreas.push([inc+(scroll*this.blockW),cords.Y,cords.W,cords.H]);
     },
 }
