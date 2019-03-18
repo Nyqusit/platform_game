@@ -1,10 +1,9 @@
 const Map = {
     init:function(){
         this.objectAreas = [];
-        this.groundArea =[];
+        this.groundAreas = [];
         this.G_BDiv = 10;
-        this.scaledWidth = (width-(width-height));
-        this.blockW = this.scaledWidth/this.G_BDiv;
+        this.blockW = width/this.G_BDiv;
         this.blockH = height/this.G_BDiv;
         this.groundBlockY = height-this.blockH;
     },
@@ -23,7 +22,20 @@ const Map = {
         let cords = this.gridCalc(x,y,w,h);
         if(scroll === cords.X){
             scrnC.drawImage(obj,inc+(scroll*this.blockW),cords.Y,cords.W,cords.H)
+            this.objectAreas.push([inc+(scroll*this.blockW),cords.Y,cords.W,cords.H]);
         }
-        this.objectAreas.push([inc+(scroll*this.blockW),cords.Y,cords.W,cords.H]);
     },
+    drawGround:function(obj,start,end,y,w,h){
+        let {blockH,blockW} = this;
+        this.end =  blockW*(end+1);
+        if(scroll >= start && scroll <= end){
+            scrnC.drawImage(obj,inc+(scroll*blockW),height-blockH*y,blockW*w,blockH*h)
+            this.groundAreas.push([inc+(scroll*blockW),height-blockH*y,blockW*w,blockH*h])
+        }
+    },
+    drawPlayer:function(y,w,h){
+        let {blockW,blockH} = this;
+        scrnC.drawImage(player,width/2-(blockW/2),height-blockH*y,blockW*w,blockH*h)
+    }
+
 }

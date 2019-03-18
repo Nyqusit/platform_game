@@ -2,13 +2,14 @@ const {app,BrowserWindow,Menu} = require('electron');
 
 let mainWindow
 
+let ratio = 900;
 
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 200,
-    height: 200,
-    fulllscreen:true,
+    width: ratio,
+    height: ratio,
+    fullscreen:false,
     webPreferences: {
       nodeIntegration: true
     }
@@ -20,7 +21,7 @@ function createWindow () {
   mainWindow.loadFile('index.html')
 
   // Open the DevTools.
-  // mainWindowwebContents.openDevTools()
+  //mainWindow.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {

@@ -32,7 +32,7 @@
     }
     </style>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>game</title>
   </head>
   <body>
     <canvas id="screen" style="display:block"> </canvas>
@@ -40,12 +40,15 @@
     <img src="img/groundBlock.jpg" alt="" id="groundBlock" class="hide">
     <img src="img/pipe.png" alt="" id="pipe" class="hide">
     <img src="img/itemBlock.jpg" alt="" id="itemBlock" class="hide">
+    <img src="img/mario.png" alt="" id="player" class="hide">
     <script>
       // You can also require other files to run in this process
       require('./renderer.js')
     </script>
   </body>
+  <script src="bin/controls.js"></script>
   <script src="bin/declare.js"></script>
   <script src="bin/classes.js"></script>
+  <script src="maps/one.js"></script>
   <script src="bin/loop.js"></script>
 </html>
