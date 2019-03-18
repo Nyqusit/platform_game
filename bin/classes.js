@@ -17,7 +17,6 @@ const Map = {
             };
             return grid;
     },
-
     drawObj:function(obj,x,y,w,h){
         let cords = this.gridCalc(x,y,w,h);
         if(scroll === cords.X){
@@ -33,9 +32,8 @@ const Map = {
             this.groundAreas.push([inc+(scroll*blockW),height-blockH*y,blockW*w,blockH*h])
         }
     },
-    drawPlayer:function(y,w,h){
+    drawPlayer:function(x,y,w,h){
         let {blockW,blockH} = this;
-        scrnC.drawImage(player,width/2-(blockW/2),height-blockH*y,blockW*w,blockH*h)
+        scrnC.drawImage(player,(width/2-(blockW/2)+x),height-blockH*y,blockW*w,blockH*h)
     }
-
 }
