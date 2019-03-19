@@ -9,39 +9,40 @@ let playerX = 0;
 
     let is_endOfMap = Map.end <= inc*-1+width;
     let is_startOfMap = inc >= 1;
-
-    //logic
-    if(!is_endOfMap){
-        if(Controls.right && playerX >= -1 ){
+    let hitStartOfMap = playerX*-1+(Player.width/2) >= width/2;
+    let hitEndOfMap = (inc*-1)+playerX+width/2+(Player.width/2)>= Map.end;
+    if(Controls.right){
+        if(!is_endOfMap && playerX >= 0){
             inc-=blockW*.0625;
-        }
-    }else{
-        if(Controls.right){
-           playerX+=blockW*.0625;
-        }
-        if(Controls.left && playerX >= 0){
-            playerX-=blockW*.0625;
+            playerX>0?playerX=0:null;
+        }else{
+            if(!hitEndOfMap){
+                playerX+=blockW*.0625;
+            }
         }
     }
-    if(!is_startOfMap){
-        if(Controls.left && playerX <= 1){
+
+    if(Controls.left){
+        if(!is_startOfMap && playerX <= 1){
             inc+=blockW*.0625;
-        }
-    }else{
-        if(Controls.left){
-            playerX-=blockW*.0625;
-        }
-        if(Controls.right && playerX <= 0){
-            playerX+=blockW*.0625;
+            playerX<0?playerX=0:null;
+        }else{
+            if(!hitStartOfMap){
+                playerX-=blockW*.0625;
+            }
         }
     }
+    //console.log(playerX)
+    //console.log(playerX*-1+Player.width >= width/2) //hit end of map
+    console.log((inc*-1)+playerX+width/2+(Player.width/2)>= Map.end) //hit end of map
+    //console.log(hitStartOfMap)
     for(scroll = 0;scroll<scrn.width/Map.blockW;scroll++){
 
     Map.init();
         {//Map
             mapOne();
-            Map.drawPlayer(playerX,3,1,1);
-            console.log(Controls.right)
+            Player.draw(playerX,3,1,1);
+            //console.log(Controls.right)
         }//Map end
 
     }

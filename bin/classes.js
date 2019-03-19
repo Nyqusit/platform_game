@@ -37,3 +37,14 @@ const Map = {
         scrnC.drawImage(player,(width/2-(blockW/2)+x),height-blockH*y,blockW*w,blockH*h)
     }
 }
+
+const Player = {
+    init:function(){
+        this.width = 0;
+    },
+    draw:function(x,y,w,h){
+        let {blockW,blockH} = Map;
+        this.width = blockW*w;
+        scrnC.drawImage(player,(width/2-(blockW/2)+x),height-blockH*y,blockW*w,blockH*h)
+    }
+}
