@@ -1,8 +1,9 @@
 
 function playerMovement(){
+    let {isWithinObjectWidth} = CollisionDetection;
     //controls
     const {is_endOfMap,is_startOfMap,hitStartOfMap,hitEndOfMap,blockW} = Map;
-    if(Controls.right){
+    if(Controls.right & !isWithinObjectWidth){
         if(!is_endOfMap && playerX >= 0){
             inc-=blockW*.0625;
             playerX>0?playerX=0:null;
@@ -24,4 +25,6 @@ function playerMovement(){
         }
     }
     //controls
+    //
+    console.log(CollisionDetection.player.hitObjectToRight);
 }
