@@ -1,5 +1,6 @@
 let inc = 0;
 let Scroll=0;
+let playerX = 0;
 const scrn = document.getElementById("screen");
 const scrnC = scrn.getContext('2d');
 const groundBlock = document.getElementById("groundBlock")
