@@ -7,10 +7,10 @@ let playerX = 0;
 
     let {blockH,blockW,G_BDiv} = Map;
 
-    let is_endOfMap = Map.end <= inc*-1+width;
+    let is_endOfMap = Map.end <= inc*-1+Swidth;
     let is_startOfMap = inc >= 1;
-    let hitStartOfMap = playerX*-1+(Player.width/2) >= width/2;
-    let hitEndOfMap = (inc*-1)+playerX+width/2+(Player.width/2)>= Map.end;
+    let hitStartOfMap = playerX*-1+(Player.width/2) >= Swidth/2;
+    let hitEndOfMap = (inc*-1)+playerX+Swidth/2+(Player.width/2)>= Map.end;
     if(Controls.right){
         if(!is_endOfMap && playerX >= 0){
             inc-=blockW*.0625;
@@ -32,17 +32,13 @@ let playerX = 0;
             }
         }
     }
-    //console.log(playerX)
-    //console.log(playerX*-1+Player.width >= width/2) //hit end of map
-    console.log((inc*-1)+playerX+width/2+(Player.width/2)>= Map.end) //hit end of map
-    //console.log(hitStartOfMap)
     for(scroll = 0;scroll<scrn.width/Map.blockW;scroll++){
+
 
     Map.init();
         {//Map
             mapOne();
             Player.draw(playerX,3,1,1);
-            //console.log(Controls.right)
         }//Map end
 
     }

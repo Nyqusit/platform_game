@@ -9,6 +9,7 @@ const player = document.getElementById("player");
 
 let height = window.innerHeight -7;
 let width = window.innerWidth -7;
+let Swidth = width-(width-height)
 
 scrn.height = height;
 scrn.width = width*10;

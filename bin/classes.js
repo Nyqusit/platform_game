@@ -43,8 +43,9 @@ const Player = {
         this.width = 0;
     },
     draw:function(x,y,w,h){
+        width = width-(width-height)
         let {blockW,blockH} = Map;
         this.width = blockW*w;
-        scrnC.drawImage(player,(width/2-(blockW/2)+x),height-blockH*y,blockW*w,blockH*h)
+        scrnC.drawImage(player,(Swidth/2-(blockW/2)+x),height-blockH*y,blockW*w,blockH*h)
     }
 }

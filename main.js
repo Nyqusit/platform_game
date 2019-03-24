@@ -2,7 +2,7 @@ const {app,BrowserWindow,Menu} = require('electron');
 
 let mainWindow
 
-let ratio = 900;
+let ratio = 400;
 
 function createWindow () {
   // Create the browser window.
@@ -16,7 +16,6 @@ function createWindow () {
   })
 
 //    mainWindow.setFullScreen(true);
-
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
 
@@ -44,9 +43,6 @@ app.on('activate', function () {
     createWindow()
   }
 })
-
-
-
 
 
 
