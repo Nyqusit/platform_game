@@ -55,7 +55,7 @@ const CollisionDetection = {
     player:{
         testOne:true,
         testTwo:true,
-        hitObjectToRight:false
+//        hitObjectToRight:false
     },
     enemy:{
 
