@@ -1,15 +1,34 @@
 const {app,BrowserWindow,Menu} = require('electron');
 
 let mainWindow
+// 16:9
+// 64  = 1024 x 576
+// 72  = 1152 x 684
+// 80  = 1280 x 720
+// 85  = 1366 x 768
+// 100 = 1600 x 900
+// 120 = 1920 x 1080
 
-let ratio = 400;
+//16:10
+//80  = 1280 x 800
+//90  = 1440 x 900
+//105 = 1680 x 1050
+//120 = 1920 x 1200
+//160 = 2560 x 1600
+function setScrnSize(w,h,factor){
+    width = w*factor;
+    height = h*factor;
+}
+
+setScrnSize(16,9,72);
 
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: ratio,
-    height: ratio,
+    width: width,
+    height: height,
     fullscreen:false,
+    frame:false,
     webPreferences: {
       nodeIntegration: true
     }

@@ -11,8 +11,8 @@
         display:none;
     }
     #screen{
-        margin-top:3px;
-        margin-left:3px;
+        margin-top:0px;
+        margin-left:0px;
     }
     html{
         height:100%;
@@ -37,10 +37,8 @@
   <body>
     <canvas id="screen" style="display:block"> </canvas>
     <canvas id="map" style="display:none"> </canvas>
-    <img src="img/groundBlock.jpg" alt="" id="groundBlock" class="hide">
-    <img src="img/pipe.png" alt="" id="pipe" class="hide">
-    <img src="img/itemBlock.jpg" alt="" id="itemBlock" class="hide">
     <img src="img/mario.png" alt="" id="player" class="hide">
+    <img src="img/tilemap.png" alt="" id="tileMap" class="hide">
     <script>
       // You can also require other files to run in this process
       require('./renderer.js')

@@ -7,18 +7,19 @@ const groundBlock = document.getElementById("groundBlock")
 const pipe = document.getElementById("pipe");
 const itemBlock = document.getElementById("itemBlock");
 const player = document.getElementById("player");
+const tileMap = document.getElementById("tileMap");
 
-let height = window.innerHeight -7;
-let width = window.innerWidth -7;
+let height = window.innerHeight;
+let width = window.innerWidth;
 let Swidth = width-(width-height)
 
 scrn.height = height;
 scrn.width = width*10;
 
 window.onresize = () =>{
-    height = window.innerHeight -7;
-    width = window.innerWidth -7;
+    height = window.innerHeight;
+    width = window.innerWidth;
     scrn.width = width*10;
     scrn.height = height;
-
+    location.reload();
 }
