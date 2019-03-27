@@ -1,12 +1,12 @@
 
 function playerMovement(){
-    let {isWithinObjectWidth} = CollisionDetection;
+    let {isWithinObjectWidth,isAboveObject} = CollisionDetection;
     let {hitObjectToRight,hitObjectToLeft,hitObjectAbove,hitObjectBellow} = CollisionDetection.player;
     let {jumpHeight, y} = Player;
     //controls
     const {is_endOfMap,is_startOfMap,hitStartOfMap,hitEndOfMap,blockW} = Map;
     //console.log(!CollisionDetection.ground.hitObjectToRight)
-    if(Controls.right && !hitObjectToRight){
+    if(Controls.right && (!hitObjectToRight || isAboveObject)) {
         if(!is_endOfMap && playerX >= 0){
             inc-=blockW*.0625;
             playerX>0?playerX=0:null;
@@ -17,7 +17,7 @@ function playerMovement(){
         }
     }
 
-    if(Controls.left & !hitObjectToLeft){
+    if(Controls.left & (!hitObjectToLeft || isAboveObject )){
         if(!is_startOfMap && playerX <= 1){
             inc+=blockW*.0625;
             playerX<0?playerX=0:null;
@@ -40,6 +40,6 @@ function playerMovement(){
         Controls.z = false;
     }
     //controls
-    //
+    console.log(isAboveObject)
     //console.log(Map.groundHeight,Player.area.bottom,Player.isJumping);
 }

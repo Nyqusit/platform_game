@@ -96,7 +96,7 @@ const CollisionDetection = {
         this.isWithinObjectHeight = top<=this.bottom && bottom>=this.top;
         this.isAboveObject = this.top >= bottom;
         this.isBellowObject = bottom >= this.bottom;
-        this.isWithinObjectTopWidth = left <= this.right && right >= this.left;
+        this.isWithinObjectTopWidth = left+5 <= this.right && right-5 >= this.left;
     },
     getCollisionOf:function(area,who){
         let {left, right, top, bottom} = area;
@@ -109,7 +109,7 @@ const CollisionDetection = {
         if(this.isWithinObjectWidth){
 
             if(this.isObjectGrounded){
-                if(this.top  <= bottom && this.isWithinObjectWidth){
+                if(this.top+5  <= bottom && this.isWithinObjectWidth){
                     who.hitObjectToLeft = left <= this.right && right >= this.right;
                     who.hitObjectToRight = right >= this.left && left <= this.left;
                 }
@@ -145,7 +145,6 @@ const CollisionDetection = {
         Map.groundAreas.forEach((grnd,grnd_idx)=>{
             this.getBoundaries(grnd);
             this.getLogicOf(Player.area);
-                //this.getCollisionOf({left:grnd[0],right:grnd[0]+grnd[2],top:grnd[1],bottom:grnd[1]+grnd[3]},this.ground)
             if(this.isWithinObjectTopWidth){
                 Map.groundHeight =Math.ceil(grnd[1]);
                 if(Map.groundHeight < Player.area.bottom){
